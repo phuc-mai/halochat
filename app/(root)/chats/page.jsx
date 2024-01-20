@@ -15,4 +15,3 @@ const Chats = () => {
 }
 
 export default Chats
-export const dynamic = 'force-dynamic'
