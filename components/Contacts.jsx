@@ -85,25 +85,28 @@ const Contacts = () => {
       <div className="contact-bar">
         <div className="contact-list">
           <p className="text-body-bold">Select or Deselect</p>
-          {contacts.map((user, index) => (
-            <div
-              key={index}
-              className="contact"
-              onClick={() => handleSelect(user)}
-            >
-              {selectedContacts.find((item) => item === user) ? (
-                <CheckCircle sx={{ color: "red" }} />
-              ) : (
-                <RadioButtonUnchecked />
-              )}
-              <img
-                src={user.profileImage || "/assets/person.jpg"}
-                alt="profile"
-                className="profilePhoto"
-              />
-              <p className="text-base-bold">{user.username}</p>
-            </div>
-          ))}
+
+          <div className="flex flex-col flex-1 gap-5 overflow-y-scroll custom-scrollbar">
+            {contacts.map((user, index) => (
+              <div
+                key={index}
+                className="contact"
+                onClick={() => handleSelect(user)}
+              >
+                {selectedContacts.find((item) => item === user) ? (
+                  <CheckCircle sx={{ color: "red" }} />
+                ) : (
+                  <RadioButtonUnchecked />
+                )}
+                <img
+                  src={user.profileImage || "/assets/person.jpg"}
+                  alt="profile"
+                  className="profilePhoto"
+                />
+                <p className="text-base-bold">{user.username}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="create-chat">
@@ -131,7 +134,13 @@ const Contacts = () => {
               </div>
             </>
           )}
-          <button className="btn" onClick={createChat} disabled={selectedContacts.length === 0}>FIND OR START A NEW CHAT</button>
+          <button
+            className="btn"
+            onClick={createChat}
+            disabled={selectedContacts.length === 0}
+          >
+            FIND OR START A NEW CHAT
+          </button>
         </div>
       </div>
     </div>

@@ -123,7 +123,7 @@
 }
 
 .contact-list {
-  @apply w-1/2 max-lg:w-full flex flex-col gap-5 bg-white rounded-3xl py-5 px-8 overflow-y-scroll custom-scrollbar;
+  @apply h-screen w-1/2 max-lg:w-full flex flex-col gap-5 bg-white rounded-3xl py-5 px-8 mb-20;
 }
 
 .contact {
